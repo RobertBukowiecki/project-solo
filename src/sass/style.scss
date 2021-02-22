@@ -1,16 +1,19 @@
-/// VARS
+@import "variables";
+@import "sidebarTransitions";
+@import "layout";
 
-$top-nav-height: 60px;
-$font-color-one: #9e9e9e;
-$color-light: #e3e3e3;
-$color-background: #f2f2ef;
-$color-darker: #191919;
-$color-dark: #282828;
-$font-one: 'Roboto', sans-serif;
+* {
+  box-sizing: border-box;
+}
 
 ///global
+.hide {
+  display: none;
+}
 
-
+.active {
+  display: block;
+}
 
 .wrapper {
   box-shadow: 0 0 10px rgb(218, 218, 218);
@@ -19,19 +22,26 @@ $font-one: 'Roboto', sans-serif;
   background: #fff;
 }
 
-h4 {
+h2 {
   font-weight: 500;
   margin: 0;
   padding: 0;
 }
 
+.margin-left {
+  margin: 77px 17px 17px calc(187px + 17px);
+}
+
 .title {
-  line-height: 45px;
-  padding-left: 10px;
+  line-height: 40px;
   border-bottom: $color-background 1.5px solid;
 
-  h4{
+  h1 {
+    font-size: 20px;
     font-weight: 400;
+    padding: 0 0 0 15px;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
   }
 }
 
@@ -69,6 +79,11 @@ body {
     color: $font-color-one;
     border-left: solid 1px $color-light;
     align-items: center;
+    cursor: pointer;
+
+    &:hover{
+      background-color: $color-light;
+    }
 
     i {
       font-size: 16px;
@@ -78,7 +93,7 @@ body {
       padding: 10px;
     }
 
-    .wallet-amount {
+    .wallet__amount {
       p {
         font-size: 15px;
         font-weight: 500;
@@ -101,7 +116,7 @@ body {
   background-color: $color-darker;
   line-height: $top-nav-height;
 
-  .logo {
+  .nav-left__logo {
     color: white;
     font-size: 25px;
     max-height: $top-nav-height;
@@ -119,7 +134,26 @@ body {
     cursor: pointer;
   }
 
-  .menu {
+  .nav-left__account {
+    border-top: $font-color-one 1px solid;
+
+    li:first-child {
+      padding-top: 20px;
+    }
+
+    .icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .flex-nav {
+      display: flex;
+      line-height: 14px;
+    }
+  }
+
+  .nav-left__menu {
     border-bottom: $font-color-one 1px solid;
     
     ul {
@@ -161,7 +195,7 @@ body {
     }
   }
 
-  .team {
+  .nav-left__team {
     ul {
       list-style: none;
       color: $font-color-one;
@@ -211,7 +245,9 @@ body {
 /// GENERAL SECTION
 
 .general {
-  margin: 77px 17px 17px calc(187px + 17px);
+  .title h1 {
+    padding-top: 0.83em;
+  }
 
   .data-picker {
     height: 100px;
@@ -237,7 +273,7 @@ body {
         display: flex;
         border-bottom: $color-background 1.5px solid;
 
-        h4 {
+        h2 {
           display: inline-block;
         }
 
@@ -256,7 +292,12 @@ body {
     margin: auto;
     padding: 0 50px;
 
-    h4 {
+    img {
+      width: 100%;
+      height: auto;
+    }
+
+    h2 {
       padding: 20px 0 30px 0;
     }
   }
@@ -266,7 +307,6 @@ body {
 /// links section
 
 .links {
-  margin: 15px 17px 17px calc(187px + 17px);
   display: flex;
 
   .button {
@@ -348,4 +388,121 @@ body {
       }
     }
   }
+}
+
+//// MEDIA
+
+@media (min-width: 768px) {
+  .nav-left__account {
+    display: none;
+  }
+
+  .mobile__nav {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-left {
+    width: 100%;
+    margin-top: 65px;
+    display: none;
+    padding-top: 15px;
+    overflow: scroll;
+
+    .nav-left__logo, .button-menu {
+      display: none;
+    }
+
+    .nav-left__account {
+      display: block;
+    }
+  }
+
+  .nav-top {
+    display: none;
+  }
+
+  .margin-left {
+    margin: 0;
+    margin-top: $top-nav-height;
+  }
+
+  .mobile__nav {
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 50px;
+    max-height: $top-nav-height;
+    box-shadow: 0 0 10px rgb(218, 218, 218);
+    background-color: #fff;
+    line-height: 50px;
+    color: #000;
+  }
+  
+  .mobile__logo {
+    font-size: 25px;
+    padding: 0 15px;
+  }
+
+  .mobile__btn {
+    font-size: 25px;
+    margin: 0 25px;
+  }
+
+  .active {
+    display: block;
+  }
+}
+
+//// modal 
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+
+  justify-content: center;
+  align-items: center;
+
+  overflow: auto;
+  padding: 30px;
+
+  display: none;
+}
+
+.overlay.show {
+  display: flex;
+}
+
+.overlay::webkit-scrollbar {
+  display: none;
+}
+
+.modal {
+  max-width: 600px;
+  margin: auto;
+  background-color: #ffffff;
+  position: relative;
+  padding: 30px;
+  display: none;
+}
+
+.modal.show {
+  display: block;
+}
+
+.modal .btn-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 5px 10px;
+  cursor: pointer;
 }
