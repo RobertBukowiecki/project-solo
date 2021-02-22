@@ -141,8 +141,8 @@
             </ul>
         </nav>
         <div class="nav-left__team">
+            <div class="manager">YOUR MANAGER</div>
             <ul class="manager">
-                <p>YOUR MANAGER</p>
                 <li>
                     <div class="photo">
                         <div class="dot"></div>
@@ -160,7 +160,13 @@
                     <h1>GENERAL STATISTIC</h1>
                 </header>
                 <div class="data-picker">
-
+                    <form>
+                        <div class="input__wrapper">
+                            <input type="date" class="input__border-right input__calendar-off">
+                            <input type="date">
+                        </div>
+                    </form>
+                    <i class="fas fa-undo"></i>
                 </div>
                 <div class="stats">
                     <div class="duo">
@@ -185,9 +191,8 @@
                     </div>
                 </div>
                 <div class="graph">
-                    <div class="img">
-                        <h2>Earning chart</h2>
-                        <img src="images/graph.png" alt="photo">
+                    <div class="graph__wrapper">
+                        <canvas id="myChart"></canvas>
                     </div>
                 </div>
             </div>
@@ -250,6 +255,7 @@
             </div>
         </section>
     </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
     <script src="js/script.js"></script>
 </body>
 

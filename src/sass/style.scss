@@ -37,7 +37,7 @@ h2 {
   border-bottom: $color-background 1.5px solid;
 
   h1 {
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 400;
     padding: 0 0 0 15px;
     margin-block-start: 0.83em;
@@ -196,12 +196,17 @@ body {
   }
 
   .nav-left__team {
+    .manager {
+      font-size: 14px;
+      margin: 0 20px;
+    }
+
     ul {
       list-style: none;
       color: $font-color-one;
       font-weight: 500;
       line-height: 40px;
-      padding: 15px 0;
+      padding: 0 0 15px 0;
       margin: 0 20px;
       font-size: 14px;
 
@@ -251,6 +256,52 @@ body {
 
   .data-picker {
     height: 100px;
+    border-bottom: $color-background 1.5px solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .input__wrapper {
+      border: $color-background 2px solid;
+      border-radius: 4px;
+
+      .input__calendar-off::-webkit-calendar-picker-indicator {
+        opacity: 0;
+      }
+
+      input::-webkit-calendar-picker-indicator {
+        opacity: 0.4;
+      }
+
+      input {
+        border: none;
+        height: 40px;
+        outline: none;
+        color: rgb(133, 133, 133);
+      }
+
+      .input__border-right {
+        border-right: $color-background 2px solid; 
+      }
+    }
+
+    i {
+      margin: 10px;
+      line-height: 40px;
+      font-size: 15px;
+      width: 40px;
+      height: 40px;
+      background-color: #ff9a38;
+      text-align: center;
+      color: #fff;
+      border-radius: 4px;
+
+      &:hover {
+        cursor: pointer;
+        background-color: #e78b2f;
+      }
+      
+    }
   }
 
   .stats {
@@ -292,9 +343,13 @@ body {
     margin: auto;
     padding: 0 50px;
 
-    img {
-      width: 100%;
+    .graph__wrapper {
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      width: 90%;
       height: auto;
+      max-width: 800px;
     }
 
     h2 {
@@ -403,6 +458,11 @@ body {
 }
 
 @media (max-width: 768px) {
+  .graph {
+    padding: 0;
+    min-height: 200px;
+  }
+
   .nav-left {
     width: 100%;
     margin-top: 65px;
@@ -452,7 +512,7 @@ body {
     margin: 0 25px;
   }
 
-  .active {
+  .nav-left--active {
     display: block;
   }
 }
